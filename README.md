@@ -37,7 +37,7 @@ Beta
 
 A basic tenet of Software Defined Networking (SDN) involves an application interacting with a network for the purpose simplifying operations or enabling a service. A controller is positioned between the application and network and interacts with network elements (e.g. routers) in the southbound direction using a variety of different protocols. In the northbound direction it present an abstraction of the network using in practice common REST APIs. This innovation supports two applications: BGP-LS Manager and PCEP Manager (aka Pathman).
 
-1 depicts the architecture of the components used in this innovation.
+Figure 1 depicts the architecture of the components used in this innovation.
 
 ![](media/image1.png)
  Figure 1 BGP-LS and PCEP Manager Innovation Architecture
@@ -47,13 +47,13 @@ From the bottom-up we have a network of routers running MPLS for label switching
 
 Inside of ODL there are YANG models of the network topology and how to configure MPLS TE tunnels on routers. The model-driven service adaptation layer (MD-SAL) takes these models and automatically generates a set of REST APIs (referred to as RESTCONF) that applications can call. BGP-LS Manager is an application that calls the RESTCONF APIs to retrieve and render a visualization of the network viewable through a simple web browser. Pathman is another application calling RESTCONF APIs when the end-user wishes to manage one or more MPLS TE paths in the network, again done through a web browser. The other key component here is the open source NeXt UI framework (based on HTML5/CSS/Javascript) used to generate a crisp representation of the network topology.
 
-2 shows the main panel of the BGP-LS Manager application viewed through a Chrome Browser. We see a network of 8 x routers interconnected in a partial mesh with each router labeled based on configuration. The end-user can click on any router to display additional information.
+Figure 2 shows the main panel of the BGP-LS Manager application viewed through a Chrome Browser. We see a network of 8 x routers interconnected in a partial mesh with each router labeled based on configuration. The end-user can click on any router to display additional information.
 
 
 ![](media/image2.png)
 Figure 2 BGP-LS Manager Application Screen
 
-3 shows the data entry portion of Pathman where the end-user wishes to setup a path from from the SAN router to the SEA router. Upon entering the path source and destination, Pathman will compute all possible paths based on either cost or hop count. The end-user can view each one graphically overlayed on top of the topology (incidentally built using the BGP-LS mechanisms).
+Figure 3 shows the data entry portion of Pathman where the end-user wishes to setup a path from from the SAN router to the SEA router. Upon entering the path source and destination, Pathman will compute all possible paths based on either cost or hop count. The end-user can view each one graphically overlayed on top of the topology (incidentally built using the BGP-LS mechanisms).
 
 
 ![](media/image3.png)
@@ -77,7 +77,7 @@ In summary ODL is an application platform abstracting the complexities of a netw
 - Enables "point and click" function for establishing MPLS TE tunnels
 - Leverages the open source NeXt UI framework for topology visualization
 - Source code in HTML5/CSS/Javascript, NeXt and Python
-- Option to employ dCloud supporting on-demand virtual ODL and IP/MPLS network provisioning
+- Option to employ dCloud supporting on-demand virtual ODL and IP/MPLS network provisioning - see dCloud tab
 
 ### References
 
