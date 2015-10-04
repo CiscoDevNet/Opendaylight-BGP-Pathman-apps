@@ -4,8 +4,8 @@ The BGP and PCEP (Pathman) apps assume that you can connect to an OpenDaylight (
 
 You will need the following information:
 
-1. 1.IP address and Port of controller
-2. 2.Authorization in the form of username and password
+1. IP address and Port of controller
+2. Authorization in the form of username and password
 
 You topology would also need to be configured to interact with the ODL controller; BGP peering with BGP-LS speaker (i.e. one of the routers configured with BGP-LS) and PCEP peering enabled in all routers.
 
