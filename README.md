@@ -49,19 +49,19 @@ Inside of ODL there are YANG models of the network topology and how to configure
 2 shows the main panel of the BGP-LS Manager application viewed through a Chrome Browser. We see a network of 8 x routers interconnected in a partial mesh with each router labeled based on configuration. The end-user can click on any router to display additional information.
 
 
-
+![](media/image2.png)
 Figure 2 BGP-LS Manager Application Screen
 
 3 shows the data entry portion of Pathman where the end-user wishes to setup a path from from the SAN router to the SEA router. Upon entering the path source and destination, Pathman will compute all possible paths based on either cost or hop count. The end-user can view each one graphically overlayed on top of the topology (incidentally built using the BGP-LS mechanisms).
 
 
-
+![](media/image3.png)
 Figure 3 Pathman data entry and path selection screen
 
 The end-user selects, names it below and hits the deploy button. In the background ODL will take the information contained in the RESTCONF API call, convert to PCEP protocols and send them down the SAN router that will then setup a path to the SEA router. The result is shown in 4.
 
 
-
+![](media/image4.png)
 Figure 4 Pathman screen showing deployed path
 
 Future enhancements to this project include segment routing support, enhanced topology APIs, multi-area/domain visualizations and ODL release support.

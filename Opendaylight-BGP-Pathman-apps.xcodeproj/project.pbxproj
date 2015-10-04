@@ -154,6 +154,9 @@
 		D8FB23F51BC0A9CD0076563F /* topo_data.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = topo_data.py; sourceTree = "<group>"; };
 		D8FB23F61BC0A9CD0076563F /* topology.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = topology.py; sourceTree = "<group>"; };
 		D8FB23F81BC0B1860076563F /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
+		D8FB23F91BC0B24F0076563F /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
+		D8FB23FA1BC0B24F0076563F /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
+		D8FB23FB1BC0B24F0076563F /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -633,6 +636,9 @@
 		D8FB23F71BC0B1860076563F /* media */ = {
 			isa = PBXGroup;
 			children = (
+				D8FB23F91BC0B24F0076563F /* image2.png */,
+				D8FB23FA1BC0B24F0076563F /* image3.png */,
+				D8FB23FB1BC0B24F0076563F /* image4.png */,
 				D8FB23F81BC0B1860076563F /* image1.png */,
 			);
 			path = media;
