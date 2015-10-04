@@ -157,6 +157,9 @@
 		D8FB23F91BC0B24F0076563F /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
 		D8FB23FA1BC0B24F0076563F /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
 		D8FB23FB1BC0B24F0076563F /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image4.png; sourceTree = "<group>"; };
+		D8FB23FC1BC1896C0076563F /* Running_Apps_towards_dCloud_Topology.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Running_Apps_towards_dCloud_Topology.md; path = media/Running_Apps_towards_dCloud_Topology.md; sourceTree = "<group>"; };
+		D8FB23FD1BC18B000076563F /* image5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image5.png; sourceTree = "<group>"; };
+		D8FB23FE1BC18B000076563F /* image6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image6.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -165,6 +168,7 @@
 			children = (
 				D8FB233B1BC0A9CD0076563F /* pathman */,
 				D8FB233A1BC0A7BB0076563F /* README.md */,
+				D8FB23FC1BC1896C0076563F /* Running_Apps_towards_dCloud_Topology.md */,
 				D8FB23F71BC0B1860076563F /* media */,
 			);
 			sourceTree = "<group>";
@@ -636,6 +640,8 @@
 		D8FB23F71BC0B1860076563F /* media */ = {
 			isa = PBXGroup;
 			children = (
+				D8FB23FD1BC18B000076563F /* image5.png */,
+				D8FB23FE1BC18B000076563F /* image6.png */,
 				D8FB23F91BC0B24F0076563F /* image2.png */,
 				D8FB23FA1BC0B24F0076563F /* image3.png */,
 				D8FB23FB1BC0B24F0076563F /* image4.png */,
