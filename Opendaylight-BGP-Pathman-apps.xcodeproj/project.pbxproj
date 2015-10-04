@@ -145,13 +145,10 @@
 		D8FB23E91BC0A9CD0076563F /* PathTopologyModel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = PathTopologyModel.js; sourceTree = "<group>"; };
 		D8FB23EA1BC0A9CD0076563F /* StatusBarModel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = StatusBarModel.js; sourceTree = "<group>"; };
 		D8FB23EB1BC0A9CD0076563F /* TopBarModel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = TopBarModel.js; sourceTree = "<group>"; };
-		D8FB23EC1BC0A9CD0076563F /* deploy.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = deploy.sh; sourceTree = "<group>"; };
 		D8FB23ED1BC0A9CD0076563F /* pathman.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pathman.log; sourceTree = "<group>"; };
-		D8FB23EE1BC0A9CD0076563F /* pathman40.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = pathman40.py; sourceTree = "<group>"; };
 		D8FB23EF1BC0A9CD0076563F /* pathman50.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = pathman50.py; sourceTree = "<group>"; };
 		D8FB23F01BC0A9CD0076563F /* pathman_ini.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = pathman_ini.py; sourceTree = "<group>"; };
 		D8FB23F11BC0A9CD0076563F /* pathman_logging.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pathman_logging.conf; sourceTree = "<group>"; };
-		D8FB23F21BC0A9CD0076563F /* pom.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pom.xml; sourceTree = "<group>"; };
 		D8FB23F31BC0A9CD0076563F /* rest_server_v5.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = rest_server_v5.py; sourceTree = "<group>"; };
 		D8FB23F41BC0A9CD0076563F /* start.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = start.sh; sourceTree = "<group>"; };
 		D8FB23F51BC0A9CD0076563F /* topo_data.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = topo_data.py; sourceTree = "<group>"; };
@@ -171,13 +168,10 @@
 			isa = PBXGroup;
 			children = (
 				D8FB233C1BC0A9CD0076563F /* client */,
-				D8FB23EC1BC0A9CD0076563F /* deploy.sh */,
 				D8FB23ED1BC0A9CD0076563F /* pathman.log */,
-				D8FB23EE1BC0A9CD0076563F /* pathman40.py */,
 				D8FB23EF1BC0A9CD0076563F /* pathman50.py */,
 				D8FB23F01BC0A9CD0076563F /* pathman_ini.py */,
 				D8FB23F11BC0A9CD0076563F /* pathman_logging.conf */,
-				D8FB23F21BC0A9CD0076563F /* pom.xml */,
 				D8FB23F31BC0A9CD0076563F /* rest_server_v5.py */,
 				D8FB23F41BC0A9CD0076563F /* start.sh */,
 				D8FB23F51BC0A9CD0076563F /* topo_data.py */,
