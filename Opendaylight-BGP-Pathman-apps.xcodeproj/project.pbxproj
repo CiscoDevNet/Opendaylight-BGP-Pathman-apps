@@ -153,6 +153,7 @@
 		D8FB23F41BC0A9CD0076563F /* start.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = start.sh; sourceTree = "<group>"; };
 		D8FB23F51BC0A9CD0076563F /* topo_data.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = topo_data.py; sourceTree = "<group>"; };
 		D8FB23F61BC0A9CD0076563F /* topology.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = topology.py; sourceTree = "<group>"; };
+		D8FB23F81BC0B1860076563F /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -161,6 +162,7 @@
 			children = (
 				D8FB233B1BC0A9CD0076563F /* pathman */,
 				D8FB233A1BC0A7BB0076563F /* README.md */,
+				D8FB23F71BC0B1860076563F /* media */,
 			);
 			sourceTree = "<group>";
 		};
@@ -626,6 +628,14 @@
 				D8FB23EB1BC0A9CD0076563F /* TopBarModel.js */,
 			);
 			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		D8FB23F71BC0B1860076563F /* media */ = {
+			isa = PBXGroup;
+			children = (
+				D8FB23F81BC0B1860076563F /* image1.png */,
+			);
+			path = media;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
