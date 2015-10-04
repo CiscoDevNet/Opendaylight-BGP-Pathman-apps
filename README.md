@@ -4,7 +4,13 @@ OpenDaylight (ODL) is an open-source application development and delivery platfo
 
 ## Team:
 
-Chris Metz, Niklas Montin, Tyler Levine, Sergey Madaminov, Giles Heron, Aikepaer Abuduweili, Bimal Grewal
+- Chris Metz
+- Niklas Montin
+- Tyler Levine
+- Sergey Madaminov
+- Giles Heron
+- Aikepaer Abuduweili
+- Bimal Grewal
 
 ### Project demo Link:
 
