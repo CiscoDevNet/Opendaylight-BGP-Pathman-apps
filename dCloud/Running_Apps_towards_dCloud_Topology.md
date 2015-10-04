@@ -90,10 +90,10 @@ RESTCONF API access to ODL is at 198.18.1.80, port 8181, user/password: admin/ad
 
 1. Software prerequisites (above and beyond what is required for dCloud access):
 
-Chrome Version 45.0.2454.101 (64-bit) or higher
-Python 2.7 or 2.6
-Tornado 4.2.1
-requests 2.6.0
+> Chrome Version 45.0.2454.101 (64-bit) or higher
+> Python 2.7 or 2.6
+> Tornado 4.2.1
+> requests 2.6.0
 
 2. Access and configuration of the dCloud Lithium ODL sandbox (per the above).
 

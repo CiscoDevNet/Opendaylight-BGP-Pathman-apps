@@ -18,7 +18,8 @@ OpenDaylight (ODL) is an open-source application development and delivery platfo
 
 ### Contact Email:
 
-[TBD@external.cisco.com](mailto:TBD@external.cisco.com) <CM: wouldn't a community be a better place to handle questions?>
+[TBD@external.cisco.com](mailto:TBD@external.cisco.com) 
+
 
 ### Social Tags:
 
@@ -70,18 +71,18 @@ In summary ODL is an application platform abstracting the complexities of a netw
 
 ## Features:
 
-- Developed to run on top of ODL
-- Leverages RESTCONF APIs based on BGP and PCEP YANG Models
-- Dynamic Visualization of a link-state topology based on BGP-LS
-- Enables "point and click" function for establishing MPLS TE tunnels
-- Leverages the open source NeXt UI framework for topology visualization
-- Source code in HTML5/CSS/Javascript, NeXt and Python
-- Option to employ dCloud supporting on-demand virtual ODL and IP/MPLS network provisioning
+- Developed to run on top of ODL
+- Leverages RESTCONF APIs based on BGP and PCEP YANG Models
+- Dynamic Visualization of a link-state topology based on BGP-LS
+- Enables "point and click" function for establishing MPLS TE tunnels
+- Leverages the open source NeXt UI framework for topology visualization
+- Source code in HTML5/CSS/Javascript, NeXt and Python
+- Option to employ dCloud supporting on-demand virtual ODL and IP/MPLS network provisioning
 
 ### References
 
--  [https://wiki.opendaylight.org/view/BGP\_LS\_PCEP:Main](https://wiki.opendaylight.org/view/BGP_LS_PCEP:Main)
+- [https://wiki.opendaylight.org/view/BGP\_LS\_PCEP:Main](https://wiki.opendaylight.org/view/BGP_LS_PCEP:Main)
 
--  [https://developer.cisco.com/site/neXt/](https://developer.cisco.com/site/neXt/)
+- [https://developer.cisco.com/site/neXt/](https://developer.cisco.com/site/neXt/)
 
--  [https://github.com/CiscoDevNet/opendaylight-sample-apps](https://github.com/CiscoDevNet/opendaylight-sample-apps)
+- [https://github.com/CiscoDevNet/opendaylight-sample-apps](https://github.com/CiscoDevNet/opendaylight-sample-apps)
