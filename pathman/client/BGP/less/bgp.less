@@ -1,0 +1,388 @@
+@import "../../../less/variables";
+@import "../../../less/mixins";
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  //  background: url(../img/odl_bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.popover {
+  max-width: 300px;
+//  width: 300px;
+}
+
+.odl-interface {
+  .transition(border-left-color 0.2s);
+  border-left: 3px solid #ccc;
+  padding-left: 5px;
+  margin-bottom: 8px;
+
+  &:hover {
+    border-left-color: @primarySelectedColor;
+  }
+}
+
+@primarySelectedColor: #ffd22b;
+@nodeSelectedBGColor: #ff6926;
+@topologyBackgroundColor: #080808;
+@secondBackgroundColor: #fff1b4;
+.n-topology-orange {
+  position: relative;
+  overflow: hidden;
+  background: @topologyBackgroundColor;
+
+  &-cursor-zoom-in {
+    //cursor: -webkit-zoom-in;
+    cursor: crosshair;
+  }
+
+  .n-svg {
+    border: none;
+  }
+
+  .link_dotted {
+    opacity: 0;
+  }
+
+  text.node-label {
+    font-family: "Cisco Sans Reg";
+    fill: @primarySelectedColor;
+    opacity: 1;
+  }
+
+  text.hint {
+    font-size: 12px;
+  }
+
+  .link path {
+    fill: @primarySelectedColor;
+    stroke: @primarySelectedColor;
+    stroke-width: 1px;
+  }
+
+  .link path.lineBG {
+    fill: @primarySelectedColor;
+    stroke: @primarySelectedColor;
+    stroke-width: 8px;
+    opacity: 0;
+
+  }
+
+  .link .linkLabel {
+    font-family: "Cisco Sans Reg";
+    fill: @primarySelectedColor;
+    font-size: 12px;
+  }
+
+  .link .linkSourceLabel {
+    font-family: "Cisco Sans Reg";
+    fill: @primarySelectedColor;
+    opacity: 0.8;
+    font-size: 12px;
+  }
+
+  .link .linkTargetLabel {
+    font-family: "Cisco Sans Reg";
+    fill: @primarySelectedColor;
+    opacity: 0.8;
+    font-size: 12px;
+  }
+
+  .link-selected path {
+    fill: @primarySelectedColor;
+    stroke: @primarySelectedColor;
+    stroke-width: 2px;
+  }
+
+  .links.fadeOut g {
+    opacity: 0.5;
+  }
+
+  defs .bg {
+    fill: @primarySelectedColor;
+  }
+
+  defs .stroke {
+    stroke: @primarySelectedColor;
+  }
+
+  .icon .bg {
+    fill: @primarySelectedColor;
+  }
+
+  .icon .stroke {
+    stroke: @primarySelectedColor;
+  }
+
+  .groups {
+    //transition: 1s
+  }
+
+  .group {
+    //transition: 0.5s;
+    opacity: 0.5;
+  }
+
+  .groupLabel {
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "Cisco Sans Reg";
+  }
+  .groupLabel:hover ~ .group {
+    opacity: 0.7;
+
+  }
+
+  .mapPah {
+    fill: @secondBackgroundColor;
+    stroke: @topologyBackgroundColor;
+    stroke-width: 1;
+  }
+
+  .selectionRect {
+    stroke: @primarySelectedColor;
+    fill: @primarySelectedColor;
+    fill-opacity: 0.1,
+  }
+
+  .link-set {
+
+    &-bg {
+      stroke: @primarySelectedColor;
+      stroke-width: 2px;
+    }
+    &-circle {
+      fill: @primarySelectedColor;
+      stroke: @primarySelectedColor;
+      stroke-width: 16px;
+      stroke-linejoin: round;
+    }
+    &-text {
+      fill: @topologyBackgroundColor;
+      text-anchor: middle;
+      dominant-baseline: central;
+      font-size: 13px;
+      pointer-events: none;
+
+    }
+
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    /* Safari only override */
+    ::i-block-chrome, .link-set-circle {
+      stroke-width: 8px !important;
+    }
+  }
+
+  .nodeset {
+    .plusIcon {
+      fill: @topologyBackgroundColor;
+      pointer-events: none;
+    }
+  }
+
+  .node .selectedBG {
+    stroke: @nodeSelectedBGColor;
+    stroke-width: 3;
+  }
+
+  .node .dot {
+    fill: @primarySelectedColor;
+  }
+
+  .nodeset .dot {
+    fill: @primarySelectedColor;
+  }
+
+  &-setting {
+    max-width: none !important;
+  }
+
+  .aggregationGroup {
+
+    .aggregationText {
+      fill: @primarySelectedColor;
+      font-size: 12px;
+    }
+
+    .aggregationRect {
+      fill: @primarySelectedColor;
+      opacity: 0.2;
+      stroke: @primarySelectedColor;
+      stroke-width: 3;
+      stroke-linejoin: round;
+      pointer-events: none;
+    }
+
+  }
+
+  & defs .white {
+    fill: @topologyBackgroundColor;
+
+  }
+
+  .icon .white {
+    fill: @topologyBackgroundColor;
+
+  }
+
+  .n-topology-nav {
+    -webkit-filter: hue-rotate(13deg);
+    filter: hue-rotate(13deg);
+  }
+}
+
+.odl-login {
+  .transition(top 1.6s);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 600px;
+  height: 400px;
+  margin-left: -300px;
+  margin-top: -200px;
+
+  &.slide {
+    top: -50%;
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 60px;
+    font-family: "Cisco Sans Extra Light", arial;
+
+    img {
+      margin-right: 15px;
+    }
+
+    small {
+      font-size: 48px;
+      color: #fff;
+    }
+  }
+
+  form {
+    width: 300px;
+    margin: 0 auto;
+    font-family: "Cisco Sans Extra Light", arial;
+
+    label {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    input {
+      border: none;
+      border-radius: 0;
+      background: fade(#fff, 50%);
+    }
+
+    button {
+      margin-top: 30px;
+      border-radius: 0;
+      font-size: 20px;
+      color: #fff;
+      background: fade(#248c24, 50%);
+
+      &:hover {
+        color: #fff;
+        background: fade(#248c24, 70%);;
+      }
+    }
+  }
+}
+
+.topology-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.popover {
+  background: #444;
+  color: #fff;
+
+  .popover-title {
+    background: #666;
+    border-bottom-color: #999;
+  }
+
+  &.left .arrow {
+    border-left-color: #444;
+    &:after {
+      border-left-color: #444;
+    }
+  }
+
+  &.right .arrow {
+    border-right-color: #444;
+    &:after {
+      border-right-color: #444;
+    }
+  }
+
+  &.top .arrow {
+    border-top-color: #444;
+    &:after {
+      border-top-color: #444;
+    }
+  }
+
+  &.bottom .arrow {
+    border-bottom-color: #444;
+    &:after {
+      border-bottom-color: #444;
+    }
+  }
+}
+
+a {
+  color: @primarySelectedColor;
+  &:hover {
+    color: darken(@primarySelectedColor, 10%);
+  }
+}
+
+@import "../../../less/terminal";
+.terminal-container {
+//  z-index: 1005;
+  position: absolute;
+  right: 10px;
+  width: 250px;
+  top: 60px;
+//  bottom: 0;
+  overflow: auto;
+  .terminal-window.minimized{
+    width: 240px;
+  }
+  max-height: 100%;
+}
+
+.bgp-tooltip {
+  padding: '0 10px';
+  .visible{
+    &:not(.true){
+//      display: none;
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+      visibility: hidden;
+    }
+  }
+}
+
+@import "../../../less/scrollbar";

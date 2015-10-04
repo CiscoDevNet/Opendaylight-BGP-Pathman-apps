@@ -1,0 +1,49 @@
+/**
+ * Created by tylevine on 7/14/14.
+ */
+
+(function (nx) {
+    /**
+     * define application
+     */
+    var Shell = nx.define(nx.ui.Application, {
+        methods: {
+            start: function () {
+                // initialize a topology
+                odl.pathman.Config = new nx.Config({
+//                    topoDataUrl:"./js/model/topoData.json",
+//                    topoDataUrl:"http://10.140.92.77:8080/APP/webs/rest/topo",
+                    loginUrl:'/APP',
+                    topoDataUrl:"http://"+host+"/APP/webs/rest/topo",
+                    interfacesDataUrl:"http://"+host+"/APP/webs/rest/topo/node/{nodeid}/interface",
+                    updateInterfaceUrl:"http://"+host+"/APP/webs/rest/topo/node/{nodeid}/interface",
+                    proxyUrl:'http://localhost:8008/proxy/',
+                    socketUrl:'ws://'+host+'/APP/webs/sock/tc'
+                   });
+
+
+
+                this.on('resize', function () {
+                    console.log('adapting via resize');
+                    main.resolve('topo').adaptToContainer();
+                });
+
+                // allow for easy console debugging
+                nx.app.mainview = 
+                nx.app.mainviewmodel = mainViewModel;
+            },
+            getContainer: function () {
+                return new nx.dom.Element(document.body);
+            }
+        }
+    });
+
+    /**
+     * create application instance
+     */
+    var shell = new Shell();
+    /**
+     * invoke start method
+     */
+    shell.start();
+}(nx));

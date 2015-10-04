@@ -1,0 +1,105 @@
+@-webkit-keyframes highlight {
+  0% {
+    background-color: white;
+  }
+  25% {
+    background-color: #FFF07B;
+  }
+  100% {
+    background-color: white;
+  }
+}
+@-moz-keyframes highlight {
+  0% {
+    background-color: white;
+  }
+  25% {
+    background-color: #FFF07B;
+  }
+  100% {
+    background-color: white;
+  }
+}
+@-o-keyframes highlight {
+  0% {
+    background-color: white;
+  }
+  25% {
+    background-color: #FFF07B;
+  }
+  100% {
+    background-color: white;
+  }
+}
+@keyframes highlight {
+  0% {
+    background-color: white;
+  }
+  25% {
+    background-color: #FFF07B;
+  }
+  100% {
+    background-color: white;
+  }
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+::-webkit-scrollbar-track-piece {
+  -webkit-border-radius: 0;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #cfcfcf;
+  -webkit-border-radius: 3px;
+  outline-offset: -2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  height: 50px;
+  background-color: #9f9f9f;
+  -webkit-border-radius: 4px;
+}
+::-webkit-scrollbar-corner {
+  background: none;
+}

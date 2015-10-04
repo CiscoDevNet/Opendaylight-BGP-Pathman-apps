@@ -1,0 +1,59 @@
+{
+    "nodes": [
+        {
+            "id": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261124",
+            "ip": "192.168.100.4",
+            "name": "xrvr-d",
+            "prefix": ["192.168.114.0/23", "192.168.116.0/23"]
+        },
+        {
+            "id": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261122",
+            "ip": "192.168.100.2",
+            "name": "xrvr-b",
+            "prefix": ["192.168.108.0/23"]
+        },
+        {
+            "id": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261121",
+            "ip": "192.168.100.1",
+            "name": "xrvr-a",
+            "prefix": ["192.168.106.0/23"]
+        },
+        {
+            "id": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261123",
+            "ip": "192.168.100.3",
+            "name": "xrvr-c",
+            "prefix": ["192.168.112.0/23", "192.168.110.0/23"]
+        }
+    ], "links": [
+    {
+        "source": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261121",
+        "target": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261122",
+        "sourceTraffic": 10,
+        "targetTraffic": 10
+    },
+    {
+        "source": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261122",
+        "target": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261124",
+        "sourceTraffic": 20,
+        "targetTraffic": 20
+    },
+    {
+        "source": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261121",
+        "target": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261123",
+        "sourceTraffic": 20,
+        "targetTraffic": 20
+    },
+    {
+        "source": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261124",
+        "target": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261121",
+        "targetTraffic": 20,
+        "sourceTraffic": 20
+    },
+    {
+        "source": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261122",
+        "target": "bgpls://Ospf:1/type=node&as=65504&domain=2887196020&area=0&router=3232261123",
+        "sourceTraffic": 20,
+        "targetTraffic": 20
+    }
+]
+}

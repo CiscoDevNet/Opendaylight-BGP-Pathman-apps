@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Loopback0",
+        "name_e": "Loopback0",
+        "description": "cccc1",
+        "description_e": "cccc1",
+        "adding": false,
+        "editing": false,
+        "busy": false
+    },
+    {
+        "name": "Loopback1",
+        "name_e": "Loopback1",
+        "description": "",
+        "description_e": "",
+        "adding": false,
+        "editing": false,
+        "busy": false
+    }
+]
