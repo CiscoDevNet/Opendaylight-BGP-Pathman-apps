@@ -1,5 +1,6 @@
 """
     parseNodes Updated 20150726 by Niklas for OSPF support and ISIS/OSPF broadcast network/pseudo node support
+    changed prints to logging, Niklas 20151005
     """
 import urllib2
 import requests
@@ -25,17 +26,17 @@ class dataHandler(tornado.web.RequestHandler):
             self.write(json.dumps(result))
             self.set_header("content-type","application/json")
         except Exception as ex:
-            print ex
+            logging.info("BGP error: %s" % ex)
 
 class topologyservice(object):
     def __init__(self):
-        print "init"
+        logging.info("BGP init")
 
     def loadData(self,url):
 	return get_url(url)
 
     def parseNodes(self, my_topology):
-        print "conpose topology"
+        logging.info("BGP build node topology")
         node_list = []
         try:
             for nodes in my_topology['topology'][0]['node']:
@@ -70,12 +71,12 @@ class topologyservice(object):
                         if node['name'][:len(owner_dict['router'])] == owner_dict['router'] and node['name'] != owner['name']:
                             node['name'] = owner['name']+node_dict['router'][len(owner_dict['router']):]
         except:
-            print "get node error2"
-	print "Nodelist Len: ",len(node_list)
+            logging.error("BGP get node error2")
+        logging.info("BGP Nodelist Len: %s" %len(node_list))
         return node_list
 
     def parseLinks(self, my_topology):
-            print "conpose topology"
+            Logging.info("BGP compose links")
             link_list = []
             try:
                 for link in my_topology['topology'][0]['link']:
@@ -85,7 +86,7 @@ class topologyservice(object):
                     temp['metric'] = link['l3-unicast-igp-topology:igp-link-attributes']['metric']
                     link_list.append(temp)
             except:
-                print "get node error3"
+                logging.error("BGP get node error3")
             return link_list
 
     def dupLink(self, links):
