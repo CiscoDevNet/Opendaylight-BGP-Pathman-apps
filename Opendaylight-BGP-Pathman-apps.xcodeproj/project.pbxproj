@@ -10,6 +10,7 @@
 		D83CF8E51BC1CB65006655F9 /* Running_Apps_towards_dCloud_Topology.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Running_Apps_towards_dCloud_Topology.md; sourceTree = "<group>"; };
 		D83CF8E61BC1CC0E006655F9 /* image5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image5.png; sourceTree = "<group>"; };
 		D83CF8E71BC1CC0E006655F9 /* image6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image6.png; sourceTree = "<group>"; };
+		D83CF8E81BC30578006655F9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D8FB233A1BC0A7BB0076563F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		D8FB233F1BC0A9CD0076563F /* spinner_32_32.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spinner_32_32.gif; sourceTree = "<group>"; };
 		D8FB23411BC0A9CD0076563F /* BGPApp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = BGPApp.js; sourceTree = "<group>"; };
@@ -184,6 +185,7 @@
 		D8FB232F1BC0A7A10076563F = {
 			isa = PBXGroup;
 			children = (
+				D83CF8E81BC30578006655F9 /* LICENSE */,
 				D83CF8E31BC1CAB7006655F9 /* dCloud */,
 				D8FB233A1BC0A7BB0076563F /* README.md */,
 				D8FB233B1BC0A9CD0076563F /* pathman */,

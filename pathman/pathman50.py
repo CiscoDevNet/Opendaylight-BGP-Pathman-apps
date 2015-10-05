@@ -33,8 +33,7 @@ __author__ = 'niklas'
 
 import os, re, time, sys
 import requests
-#import urllib
-#import urllib2
+
 import json
 import logging
 import logging.config
@@ -43,10 +42,6 @@ from logging import Formatter
 from collections import namedtuple
 from copy import deepcopy
 from topo_data import topologyData
-#import lxml.etree
-#import lxml.builder
-#from ipaddress  import *
-#from name_lookup import name_check
 
 from pprint import pprint
 
@@ -59,7 +54,7 @@ version = '5.0'
 odl_ip = '127.0.0.1'
 odl_port = '8181'
 log_file = 'pathman.log'
-log_size = 20000
+log_size = 100000
 log_count = 3
 log_level = 'INFO'
 #log_level = 'DEBUG'
@@ -69,23 +64,6 @@ from pathman_ini import *
 #==============================================================
 Node = namedtuple('Node', ['name', 'id', 'loopback', 'portlist','pcc','pcep_type','prefix'])
 LSP = namedtuple('LSP',['name', 'pcc', 'hoplist', 'iphoplist'])
-
-# for offline testing of 8-node topo
-net =   {u'0000.0000.0021': {u'0000.0000.0024': 10,
-                             u'0000.0000.0027': 10,
-                             u'0000.0000.0030': 10},
-         u'0000.0000.0022': {u'0000.0000.0027': 10, u'0000.0000.0030': 10},
-         u'0000.0000.0024': {u'0000.0000.0021': 10, u'0000.0000.0028': 10},
-         u'0000.0000.0026': {u'0000.0000.0028': 10, u'0000.0000.0029': 10},
-         u'0000.0000.0027': {u'0000.0000.0021': 10, u'0000.0000.0022': 10},
-         u'0000.0000.0028': {u'0000.0000.0024': 10,
-                             u'0000.0000.0026': 10,
-                             u'0000.0000.0030': 10},
-         u'0000.0000.0029': {u'0000.0000.0026': 10, u'0000.0000.0030': 10},
-         u'0000.0000.0030': {u'0000.0000.0021': 10,
-                             u'0000.0000.0022': 10,
-                             u'0000.0000.0028': 10,
-                             u'0000.0000.0029': 10}}
 
 get_topo = 'http://%s:%s/restconf/operational/network-topology:network-topology/topology/example-linkstate-topology' %(odl_ip, odl_port)
 get_pcep = 'http://%s:%s/restconf/operational/network-topology:network-topology/topology/pcep-topology' %(odl_ip, odl_port)
@@ -231,15 +209,15 @@ LOGGING = {
             'filters': ['module_filter'],
             'formatter':'to_file',
             'filename': log_file,
-            'maxBytes': 20000,
-            'backupCount': 3,
+            'maxBytes': log_size,
+            'backupCount': log_count,
             'encoding': 'utf8'
             }
         },
     'root': {
         'level': log_level,
-        'handlers': ['console','logtofile']
-        #'handlers': ['logtofile']
+        #'handlers': ['console','logtofile']
+        'handlers': ['logtofile']
         },
 }
 
