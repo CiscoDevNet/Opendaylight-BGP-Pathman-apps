@@ -11,6 +11,10 @@
 		D83CF8E61BC1CC0E006655F9 /* image5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image5.png; sourceTree = "<group>"; };
 		D83CF8E71BC1CC0E006655F9 /* image6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image6.png; sourceTree = "<group>"; };
 		D83CF8E81BC30578006655F9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D83CF8EA1BC33AE7006655F9 /* docker-build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "docker-build.sh"; sourceTree = "<group>"; };
+		D83CF8EB1BC33AE7006655F9 /* docker-run.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "docker-run.sh"; sourceTree = "<group>"; };
+		D83CF8EC1BC33AE7006655F9 /* Dockerfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dockerfile; sourceTree = "<group>"; };
+		D83CF8ED1BC33AE7006655F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		D8FB233A1BC0A7BB0076563F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		D8FB233F1BC0A9CD0076563F /* spinner_32_32.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spinner_32_32.gif; sourceTree = "<group>"; };
 		D8FB23411BC0A9CD0076563F /* BGPApp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = BGPApp.js; sourceTree = "<group>"; };
@@ -182,10 +186,22 @@
 			path = media;
 			sourceTree = "<group>";
 		};
+		D83CF8E91BC33AE7006655F9 /* Docker */ = {
+			isa = PBXGroup;
+			children = (
+				D83CF8EA1BC33AE7006655F9 /* docker-build.sh */,
+				D83CF8EB1BC33AE7006655F9 /* docker-run.sh */,
+				D83CF8EC1BC33AE7006655F9 /* Dockerfile */,
+				D83CF8ED1BC33AE7006655F9 /* README.md */,
+			);
+			path = Docker;
+			sourceTree = "<group>";
+		};
 		D8FB232F1BC0A7A10076563F = {
 			isa = PBXGroup;
 			children = (
 				D83CF8E81BC30578006655F9 /* LICENSE */,
+				D83CF8E91BC33AE7006655F9 /* Docker */,
 				D83CF8E31BC1CAB7006655F9 /* dCloud */,
 				D8FB233A1BC0A7BB0076563F /* README.md */,
 				D8FB233B1BC0A9CD0076563F /* pathman */,
