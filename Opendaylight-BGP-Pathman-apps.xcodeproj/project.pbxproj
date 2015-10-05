@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		D83CF8E51BC1CB65006655F9 /* Running_Apps_towards_dCloud_Topology.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Running_Apps_towards_dCloud_Topology.md; sourceTree = "<group>"; };
+		D83CF8E51BC1CB65006655F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		D83CF8E61BC1CC0E006655F9 /* image5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image5.png; sourceTree = "<group>"; };
 		D83CF8E71BC1CC0E006655F9 /* image6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image6.png; sourceTree = "<group>"; };
 		D83CF8E81BC30578006655F9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		D83CF8E31BC1CAB7006655F9 /* dCloud */ = {
 			isa = PBXGroup;
 			children = (
-				D83CF8E51BC1CB65006655F9 /* Running_Apps_towards_dCloud_Topology.md */,
+				D83CF8E51BC1CB65006655F9 /* README.md */,
 				D83CF8E41BC1CAB7006655F9 /* media */,
 			);
 			path = dCloud;
