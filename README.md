@@ -18,7 +18,7 @@ OpenDaylight (ODL) is an open-source application development and delivery platfo
 
 ### Contact Email:
 
-[TBD@external.cisco.com](mailto:TBD@external.cisco.com) 
+[odl-bgp-pathman-apps@external.cisco.com](odl-bgp-pathman-apps@external.cisco.com) 
 
 
 ### Social Tags:
