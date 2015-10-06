@@ -42,6 +42,6 @@ RUN cd /opt \
 	&& git init \
 	&& git pull https://github.com/CiscoDevNet/Opendaylight-BGP-Pathman-apps
 
-ENTRYPOINT python rest_server_v5.py > /tmp/pathman_api.log 2>&1
+ENTRYPOINT cd /opt/pathman && python rest_server_v5.py > /tmp/pathman_api.log 2>&1
 #ENTRYPOINT /bin/bash
 

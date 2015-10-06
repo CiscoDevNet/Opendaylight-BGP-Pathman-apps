@@ -18,7 +18,7 @@ docker pull nikmon2/bgp-pathman
 
 ### How to Run
 ```
-docker run -d -p 8020:8020 -t bgp-pathman
+docker run -d -p 8020:8020 -t nikmon2/bgp-pathman
 ```
 
 ### Build your own container
