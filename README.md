@@ -23,7 +23,7 @@ OpenDaylight (ODL) is an open-source application development and delivery platfo
 
 ### Social Tags:
 
-SDN, Open Source, NexT, IP, MPLS, BGP, BGP-LD, OSPF, ISIS, Traffic Engineering, RESTCONF API, YANG
+SDN, Open Source, NexT, IP, MPLS, BGP, BGP-LS, OSPF, ISIS, Traffic Engineering, RESTCONF API, YANG
 
 ### Project Kick-off Date:
 
