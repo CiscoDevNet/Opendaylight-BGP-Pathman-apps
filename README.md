@@ -35,7 +35,7 @@ Beta
 
 ## Application Overview:
 
-A basic tenet of Software Defined Networking (SDN) involves an application interacting with a network for the purpose simplifying operations or enabling a service. A controller is positioned between the application and network and interacts with network elements (e.g. routers) in the southbound direction using a variety of different protocols. In the northbound direction it present an abstraction of the network using in practice common REST APIs. This innovation supports two applications: BGP-LS Manager and PCEP Manager (aka Pathman).
+A basic tenet of Software Defined Networking (SDN) involves an application interacting with a network for the purpose of simplifying operations or enabling a service. A controller is positioned between the application and network and interacts with network elements (e.g. routers) in the southbound direction using a variety of different protocols. In the northbound direction it presents an abstraction of the network using in practice common REST APIs. This innovation supports two applications: BGP-LS Manager and PCEP Manager (aka Pathman).
 
 Figure 1 depicts the architecture of the components used in this innovation.
 
