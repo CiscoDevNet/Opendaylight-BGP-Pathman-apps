@@ -28,6 +28,7 @@
     20150531, Niklas - ver 4.9, pseudo node fixes
     20150830, Niklas - ver 4.9b - Lithium changes - auth and xml payload for create and delete
     20150930, Niklas - ver 5.0 - Minor cleanup for publishing
+    20160607, Niklas - ver 5.1 Added metric processing for cases when metric is missing
     """
 __author__ = 'niklas'
 
@@ -49,7 +50,7 @@ import datetime as _datetime
 from string import Template
 
 #==============================================================
-version = '5.0'
+version = '5.1'
 # Defaults overridden by pathman_ini.py
 odl_ip = '127.0.0.1'
 odl_port = '8181'
@@ -367,8 +368,8 @@ def node_structure(my_topology, debug = 2):
         pcep_type = ""
         for keys in nodes['l3-unicast-igp-topology:igp-node-attributes'].keys():
             if keys == 'router-id':
+                router_id = nodes['l3-unicast-igp-topology:igp-node-attributes']['router-id'][0]
                 if nodes['l3-unicast-igp-topology:igp-node-attributes']['router-id'][0] in loops:
-                    router_id = nodes['l3-unicast-igp-topology:igp-node-attributes']['router-id'][0]
                     index = loops.index(router_id)
                     pcc = pcc_list[index]['pcc']
                     pcep_type = pcc_list[index]['pcep_type']
@@ -406,20 +407,27 @@ def pseudo_net_build(node_list):
 
 def node_links(my_topology, debug = 2):
     """ Dumps link info """
+    def metric_test(attributes):
+        """ Pick a metric to return """
+        if 'metric' in attributes.keys():
+            return attributes['metric']
+        elif 'ospf-topology:ospf-link-attributes' in attributes.keys() and 'ted' in attributes['ospf-topology:ospf-link-attributes']:
+            return attributes['ospf-topology:ospf-link-attributes']['ted'].get('te-default-metric', 10)
+        elif 'isis-topology:isis-link-attributes' in attributes.keys() and 'ted' in attributes['isis-topology:isis-link-attributes']:
+            return attributes['isis-topology:isis-link-attributes'].get('te-default-metric', 10)
+        else:
+            return 10
     net = {}
     link_list = []
-    #nprint2 (" Number of links: %s" % len(my_topology['topology'][0]['link']), debug)
+    logging.debug(" Number of links: %s" % len(my_topology['topology'][0]['link']))
     try:
         for link in my_topology['topology'][0]['link']:
             link_dict = html_style(link['link-id'])
             link_list.append(link_dict)
             if link_dict['local-router'] in net.keys():
-                net[link_dict['local-router']].update({link_dict['remote-router']:link['l3-unicast-igp-topology:igp-link-attributes']['metric']})
-
+                net[link_dict['local-router']].update({link_dict['remote-router']:metric_test(link['l3-unicast-igp-topology:igp-link-attributes'])})
             else:
-                net.update({link_dict['local-router']:{link_dict['remote-router']:link['l3-unicast-igp-topology:igp-link-attributes']['metric']}})
-            #nprint2 ("Link: %s" % link['link-id'], debug)
-            #nprint2 ("Metric: %s" % link['l3-unicast-igp-topology:igp-link-attributes']['metric'], debug)
+                net.update({link_dict['local-router']:{link_dict['remote-router']:metric_test(link['l3-unicast-igp-topology:igp-link-attributes'])}})
     except:
         logging.info("We have no links in our BGP-LS topology")
     return net, link_list
@@ -1185,8 +1193,8 @@ if __name__ == '__main__':
 #    logger = create_rotating_log('Pathman',log_file)
 #    logger.propagate = True
     #nprint('This is initializing the log',1)
-    #logging.config.dictConfig(LOGGING)
-    logging.config.fileConfig("pathman_logging.conf")
+    logging.config.dictConfig(LOGGING)
+    #logging.config.fileConfig("pathman_logging.conf")
     logging.info('//This is initializing the log')
     logging.info("//Python version is %s.%s.%s" % sys.version_info[:3])
     logging.info("//Program is %s" % sys.argv[0])

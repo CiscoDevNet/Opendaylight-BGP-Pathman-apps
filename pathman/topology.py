@@ -1,28 +1,27 @@
 """
     parseNodes Updated 20150726 by Niklas for OSPF support and ISIS/OSPF broadcast network/pseudo node support
     changed prints to logging, Niklas 20151005
+    added pathman_ini for odl_ip and port, Niklas 20160606
     """
-import urllib2
-import requests
+
 import tornado.web
 import json
-from pathman50 import html_style, name_check, get_url
-from pathman_ini import *
+from pathman50 import html_style, name_check, get_url, get_topo
 import logging
 
 class dataHandler(tornado.web.RequestHandler):
     def get(self):
         service = topologyservice()
-        o_data = service.loadData("http://198.18.1.80:8181/restconf/operational/network-topology:network-topology/topology/example-linkstate-topology")
+        o_data = service.loadData(get_topo)
         try:
             nodes = service.parseNodes(o_data)
             links1 = service.parseLinks(o_data)
             links = service.dupLink(links1)
             result = {}
             result["nodes"] = nodes
-	    logging.info('BGP Nodes: %s' % len(nodes))
+            logging.info('BGP Nodes: %s' % len(nodes))
             result['links'] = links
-	    logging.info('BGP Links: %s' % len(links))
+            logging.info('BGP Links: %s' % len(links))
             self.write(json.dumps(result))
             self.set_header("content-type","application/json")
         except Exception as ex:
@@ -33,7 +32,7 @@ class topologyservice(object):
         logging.info("BGP init")
 
     def loadData(self,url):
-	return get_url(url)
+        return get_url(url)
 
     def parseNodes(self, my_topology):
         logging.info("BGP build node topology")

@@ -20,7 +20,7 @@
     
     """
 
-log_file = 'pathman.log'
+
 log_size = 100000
 log_count = 3
 odl_ip = '198.18.1.80'
