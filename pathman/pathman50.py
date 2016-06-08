@@ -30,6 +30,7 @@
     20150930, Niklas - ver 5.0 - Minor cleanup for publishing
     20160607, Niklas - ver 5.1 Added metric processing for cases when metric is missing
                             added fix to skip SR-LSPs to upset lsp-list.
+    20160608, Niklas - ver 5.2 - Added fix for dropping asymmetric links, not the whole topo.
     """
 __author__ = 'niklas'
 
@@ -51,7 +52,7 @@ import datetime as _datetime
 from string import Template
 
 #==============================================================
-version = '5.1'
+version = '5.2'
 # Defaults overridden by pathman_ini.py
 odl_ip = '127.0.0.1'
 odl_port = '8181'
@@ -469,7 +470,7 @@ def list_pcep_lsp(node_list, debug):
                                 for nexthop in path['path'][0]['ero']['subobject']:
                                     if 'ip-prefix' in nexthop.keys():
                                         ip_hoplist.append(nexthop['ip-prefix']['ip-prefix'])
-
+                                        
                                 hoplist = []
                                 originate = name_from_pcc(pcc, node_list, debug)
                                 if originate != '':
@@ -1062,13 +1063,15 @@ def getTopo(dict_subcommand, debug):
             for hop in net_by_name[node].keys():
                 if hop_not_source(topo_response['links'], hop):
                     #link_dict.update({'source':node, 'target':hop})
-                    link_dict = {'source':None, 'target':None,'sourceTraffic':0, 'targetTraffic':0}
-                    link_dict["source"]=node
-                    link_dict["target"]=hop
-                    link_dict["sourceTraffic"] = net_by_name[node][hop]
-                    link_dict["targetTraffic"] = net_by_name[hop][node]
-                    topo_response['links'].append(link_dict)
-
+                    try:
+                        link_dict = {'source':None, 'target':None,'sourceTraffic':0, 'targetTraffic':0}
+                        link_dict["source"]=node
+                        link_dict["target"]=hop
+                        link_dict["sourceTraffic"] = net_by_name[node][hop]
+                        link_dict["targetTraffic"] = net_by_name[hop][node]
+                        topo_response['links'].append(link_dict)
+                    except KeyError:
+                        logging.error("bgp-ls link missing between {0} and {1}".format(hop, node))
         logging.info("Topo build with %s nodes" % num_nodes)
         return True, 'another sunny day', topo_response
     else:
