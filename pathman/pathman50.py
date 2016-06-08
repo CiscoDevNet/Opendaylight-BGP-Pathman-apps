@@ -29,6 +29,7 @@
     20150830, Niklas - ver 4.9b - Lithium changes - auth and xml payload for create and delete
     20150930, Niklas - ver 5.0 - Minor cleanup for publishing
     20160607, Niklas - ver 5.1 Added metric processing for cases when metric is missing
+                            added fix to skip SR-LSPs to upset lsp-list.
     """
 __author__ = 'niklas'
 
@@ -466,7 +467,9 @@ def list_pcep_lsp(node_list, debug):
                         if 'operational' in path['path'][0]['odl-pcep-ietf-stateful07:lsp'].keys():
                             if path['path'][0]['odl-pcep-ietf-stateful07:lsp']['operational'] == 'up':
                                 for nexthop in path['path'][0]['ero']['subobject']:
-                                    ip_hoplist.append(nexthop['ip-prefix']['ip-prefix'])
+                                    if 'ip-prefix' in nexthop.keys():
+                                        ip_hoplist.append(nexthop['ip-prefix']['ip-prefix'])
+
                                 hoplist = []
                                 originate = name_from_pcc(pcc, node_list, debug)
                                 if originate != '':
