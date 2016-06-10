@@ -31,6 +31,7 @@
     20160607, Niklas - ver 5.1 Added metric processing for cases when metric is missing
                             added fix to skip SR-LSPs to upset lsp-list.
     20160608, Niklas - ver 5.2 - Added fix for dropping asymmetric links, not the whole topo.
+    20160610, Niklas - ver 5.2b - Added test for termination-points
     """
 __author__ = 'niklas'
 
@@ -52,7 +53,7 @@ import datetime as _datetime
 from string import Template
 
 #==============================================================
-version = '5.2'
+version = '5.2b'
 # Defaults overridden by pathman_ini.py
 odl_ip = '127.0.0.1'
 odl_port = '8181'
@@ -357,12 +358,15 @@ def node_structure(my_topology, debug = 2):
                 prefix_array.append(prefix['prefix'])
                 #logging.debug("prefix: %s, metric: %s " % (prefix['prefix'],prefix['metric']))
         node_ports = []
-        for link in nodes['termination-point']:
-            #logging.debug("port: %s " % link['tp-id'])
-            if 'tp-id' in link.keys():
-                port_dict = html_style(link['tp-id'])
-                if 'ipv4' in port_dict.keys():
-                    node_ports.append(port_dict['ipv4'])
+        if 'termination-point' in nodes.keys():
+            for link in nodes['termination-point']:
+                #logging.debug("port: %s " % link['tp-id'])
+                if 'tp-id' in link.keys():
+                    port_dict = html_style(link['tp-id'])
+                    if 'ipv4' in port_dict.keys():
+                        node_ports.append(port_dict['ipv4'])
+        else:
+            logging.error("Node {0} is missing 'termination-point' ".format(node_dict['router']))
         index = -1
         router_id = ""
         name = ""
@@ -470,7 +474,7 @@ def list_pcep_lsp(node_list, debug):
                                 for nexthop in path['path'][0]['ero']['subobject']:
                                     if 'ip-prefix' in nexthop.keys():
                                         ip_hoplist.append(nexthop['ip-prefix']['ip-prefix'])
-                                        
+
                                 hoplist = []
                                 originate = name_from_pcc(pcc, node_list, debug)
                                 if originate != '':
