@@ -32,6 +32,7 @@
                             added fix to skip SR-LSPs to upset lsp-list.
     20160608, Niklas - ver 5.2 - Added fix for dropping asymmetric links, not the whole topo.
     20160610, Niklas - ver 5.2b - Added test for termination-points
+    20160831, Niklas - ver 5.2c - Added extra test for Pseudo nodes
     """
 __author__ = 'niklas'
 
@@ -53,7 +54,7 @@ import datetime as _datetime
 from string import Template
 
 #==============================================================
-version = '5.2b'
+version = '5.2c'
 # Defaults overridden by pathman_ini.py
 odl_ip = '127.0.0.1'
 odl_port = '8181'
@@ -402,7 +403,7 @@ def pseudo_net_build(node_list):
                     pseudo_network = '0.0.0.0/32'
                     for network in owner.prefix:
                         #logging.info("calling ipv4_in_network for: %s - owner:%s" %(node.name,owner.name))
-                        if ipv4_in_network(node.portlist[0], network):
+                        if node.portlist != [] and ipv4_in_network(node.portlist[0], network):
                             pseudo_network = network
                     node_list[node_list.index(node)] = node._replace(name= owner.name+node.id[len(owner.id):],pcep_type="pseudonode",prefix=pseudo_network)
                     pseudo_net += node.portlist
