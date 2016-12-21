@@ -33,6 +33,7 @@
     20160608, Niklas - ver 5.2 - Added fix for dropping asymmetric links, not the whole topo.
     20160610, Niklas - ver 5.2b - Added test for termination-points
     20160831, Niklas - ver 5.2c - Added extra test for Pseudo nodes
+    20161220, Niklas - ver 5.2d - list_pcep_lsp updated with rro/ero checks for junos
     """
 __author__ = 'niklas'
 
@@ -54,7 +55,7 @@ import datetime as _datetime
 from string import Template
 
 #==============================================================
-version = '5.2c'
+version = '5.2d'
 # Defaults overridden by pathman_ini.py
 odl_ip = '127.0.0.1'
 odl_port = '8181'
@@ -471,8 +472,15 @@ def list_pcep_lsp(node_list, debug):
                     ip_hoplist = []
                     if 'odl-pcep-ietf-stateful07:lsp' in path['path'][0].keys():
                         if 'operational' in path['path'][0]['odl-pcep-ietf-stateful07:lsp'].keys():
-                            if path['path'][0]['odl-pcep-ietf-stateful07:lsp']['operational'] == 'up':
-                                for nexthop in path['path'][0]['ero']['subobject']:
+                            oper = path['path'][0]['odl-pcep-ietf-stateful07:lsp']['operational']
+                            # if path['path'][0]['odl-pcep-ietf-stateful07:lsp']['operational'] == 'up':
+                            if oper == 'up' or oper == 'active':
+                                if 'rro' in path['path'][0].keys():
+                                    route_obj = path['path'][0]['rro']['subobject']
+                                else:
+                                    route_obj = path['path'][0]['ero']['subobject']
+                                # for nexthop in path['path'][0]['ero']['subobject']:
+                                for nexthop in route_obj:
                                     if 'ip-prefix' in nexthop.keys():
                                         ip_hoplist.append(nexthop['ip-prefix']['ip-prefix'])
 
