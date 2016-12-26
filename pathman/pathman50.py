@@ -345,7 +345,7 @@ def add_node(node_list, name, id, loopback, portlist, pcc, pcep_type, prefix):
             node_list[index] = node
             logging.info("Updated node: %s" % str(node))
     else:
-        node = Node(name, id, loopback, sorted(portlist), pcc, pcep_type, sorted(prefix), sid)
+        node = Node(name, id, loopback, sorted(portlist), pcc, pcep_type, sorted(prefix))
         logging.info("New node: %s" % str(node))
         node_list.append(node)
 
