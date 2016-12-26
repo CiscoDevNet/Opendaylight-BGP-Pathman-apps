@@ -34,6 +34,7 @@
     20160610, Niklas - ver 5.2b - Added test for termination-points
     20160831, Niklas - ver 5.2c - Added extra test for Pseudo nodes
     20161220, Niklas - ver 5.2d - list_pcep_lsp updated with rro/ero checks for junos
+    20161226, Niklas - ver 5.2e - multi-area support added for node-detection
     """
 __author__ = 'niklas'
 
@@ -332,6 +333,22 @@ def find_link2(local, remote, address):
                 return -1
     return(-1)
 
+def add_node(node_list, name, id, loopback, portlist, pcc, pcep_type, prefix):
+    id_list = [node.id for node in node_list]
+    if id in id_list:
+        index = id_list.index(id)
+        node = node_list[index]
+        if name != node.name:
+            logging.error('Name does not match for same ID: {} was {}'.format(name, node.name))
+        if portlist != node.portlist or prefix != node.prefix:
+            node = node._replace(portlist=sorted(list(set(node.portlist+portlist))), prefix=sorted(list(set(node.prefix+prefix))))
+            node_list[index] = node
+            logging.info("Updated node: %s" % str(node))
+    else:
+        node = Node(name, id, loopback, sorted(portlist), pcc, pcep_type, sorted(prefix), sid)
+        logging.info("New node: %s" % str(node))
+        node_list.append(node)
+
 def node_structure(my_topology, debug = 2):
     """ learn (print out) the topology structure """
 
@@ -389,9 +406,10 @@ def node_structure(my_topology, debug = 2):
                 success, hname = name_check(nodes['l3-unicast-igp-topology:igp-node-attributes']['router-id'][0])
                 if success:
                     name = hname
-        node = Node(name,node_dict['router'],router_id,node_ports,pcc, pcep_type, prefix_array)
-        logging.info("New node: %s" % str(node))
-        node_list.append(node)
+        add_node(node_list, name, node_dict['router'], router_id, node_ports, pcc, pcep_type, prefix_array)
+        # node = Node(name,node_dict['router'],router_id,node_ports,pcc, pcep_type, prefix_array)
+        # logging.info("New node: %s" % str(node))
+        # node_list.append(node)
     logging.info(node_list)
     return node_list
     
