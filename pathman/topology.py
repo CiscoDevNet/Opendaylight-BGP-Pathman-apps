@@ -64,7 +64,6 @@ class topologyservice(object):
                 if node['name'] in old_list:
                     logging.info('updating node {}'.format(node['name']))
                     index = old_list.index(node['name'])
-                    print 'adding', node_list[index]['prefix'], prefix_array
                     node_list[index]['prefix'] = sorted(list(set(node_list[index]['prefix'] + prefix_array)))
                 else:
                     node['prefix'] = sorted(prefix_array)
@@ -81,9 +80,6 @@ class topologyservice(object):
         except Exception as ex:
             logging.error("BGP get node error2: %s" % ex)
         logging.info("BGP Nodelist Len: %s" %len(node_list))
-        for node in node_list:
-            print node['name'], node['loopback'], node['id']
-        return node_list
 
     def parseLinks(self, my_topology):
             logging.info("BGP compose links")
