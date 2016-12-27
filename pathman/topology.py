@@ -2,6 +2,7 @@
     parseNodes Updated 20150726 by Niklas for OSPF support and ISIS/OSPF broadcast network/pseudo node support
     changed prints to logging, Niklas 20151005
     added pathman_ini for odl_ip and port, Niklas 20160606
+    added multi-area/level support for topo layout, Niklas 20161226
     """
 
 import tornado.web
@@ -59,9 +60,17 @@ class topologyservice(object):
                 else:
                     node['name'] = node_dict['router']
                     node['loopback'] = "0.0.0.0"
-                node['prefix'] = prefix_array
-                node['id'] = nodes['node-id']
-                node_list.append(node)
+                old_list = [old_node['name'] for old_node in node_list]
+                if node['name'] in old_list:
+                    logging.info('updating node {}'.format(node['name']))
+                    index = old_list.index(node['name'])
+                    print 'adding', node_list[index]['prefix'], prefix_array
+                    node_list[index]['prefix'] = sorted(list(set(node_list[index]['prefix'] + prefix_array)))
+                else:
+                    node['prefix'] = sorted(prefix_array)
+                    # node['id'] = nodes['node-id']
+                    node['id'] = node_dict['router']
+                    node_list.append(node)
             for node in node_list:
                 node_dict =  html_style(node['id'])
                 if node['name'] == node_dict['router'] and node['loopback'] == "0.0.0.0":
@@ -72,18 +81,24 @@ class topologyservice(object):
         except Exception as ex:
             logging.error("BGP get node error2: %s" % ex)
         logging.info("BGP Nodelist Len: %s" %len(node_list))
+        for node in node_list:
+            print node['name'], node['loopback'], node['id']
         return node_list
 
     def parseLinks(self, my_topology):
             logging.info("BGP compose links")
             link_list = []
+            address_pairs = []
             try:
                 for link in my_topology['topology'][0]['link']:
                     temp = {}
-                    temp['source'] = link['source']['source-node']
-                    temp['target'] = link['destination']['dest-node']
+                    temp['source'] = html_style(link['source']['source-node'])['router']
+                    temp['target'] = html_style(link['destination']['dest-node'])['router']
                     temp['metric'] = link['l3-unicast-igp-topology:igp-link-attributes']['metric']
-                    link_list.append(temp)
+                    pair = html_style(link['source']['source-tp'])['ipv4'], html_style(link['destination']['dest-tp'])['ipv4']
+                    if pair not in address_pairs:
+                        link_list.append(temp)
+                        address_pairs.append(pair)
             except Exception as ex:
                 logging.error("BGP get node error3: %s" % ex)
             return link_list
