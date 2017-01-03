@@ -80,6 +80,7 @@ class topologyservice(object):
         except Exception as ex:
             logging.error("BGP get node error2: %s" % ex)
         logging.info("BGP Nodelist Len: %s" %len(node_list))
+        return node_list
 
     def parseLinks(self, my_topology):
             logging.info("BGP compose links")
