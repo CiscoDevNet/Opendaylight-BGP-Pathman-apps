@@ -1,6 +1,6 @@
 # Running your OpenDaylight APPs towards a Topology
 
-Updated: 20160718
+Updated: 20170928
 
 The BGP and PCEP (Pathman) apps assume that you can connect to an OpenDaylight (ODL) Controller.
 
@@ -13,7 +13,7 @@ You topology would also need to be configured to interact with the ODL controlle
 
 To simplify this step, we have implement a demonstration ODL controller and network topology available at dcloud .cisco.com. Below you will find the information required to have these apps interact with dCLoud.
 
-# Accessing OpenDaylight Beryllium at dCloud
+# Accessing OpenDaylight Boron at dCloud
 
 First, you need to connect to [dcloud.cisco.com](http://dcloud.cisco.com) and signup. If you are a new user, you may need to first signup at [cco.cisco.com](http://cco.cisco.com), and then at [dcloud](http://dcloud.cisco.com).
 
@@ -24,7 +24,7 @@ When connecting to dcloud, you will first be prompted to select a datacenter nea
 ![](media/image5.png)
 Figure 1 dCloud data center selection screen
 
-Once connected to [dCloud](http://dcloud.cisco.com), you will see the content overview. From there, select Service Provider, and locate the [OpenDayLight Beryllium SR2 with Apps with 8 nodes v1.](https://dcloud-cms.cisco.com/demo/opendaylight-beryllium-sr2-with-apps-with-8-nodes-v1) demo.
+Once connected to [dCloud](http://dcloud.cisco.com), you will see the content overview. From there, select Service Provider, and locate the [OpenDayLight Boron SR4 with Apps with 8 nodes v1.](https://dcloud-cms.cisco.com/demo/odl-boron-sr4-apps-8n-v1) demo.
 
 Note that any newer ODL demo should work fine as well.
 
@@ -38,7 +38,13 @@ Now you are done and you should have a session being started for you.
 
 Note:
 
-These apps have been adapted to the Lithium release of Opendaylight.
+These apps have been tested with the following releases of Opendaylight:
+
+    - Lithium
+    - Beryllium
+    - Boron
+    - Carbon
+    - Nitrogen
 
 **No changes are needed to run these apps towards the above-mentioned topology in dCloud.**
 
