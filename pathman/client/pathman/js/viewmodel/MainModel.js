@@ -31,19 +31,16 @@
 
                 var self = this;
                 nx.backend.topo(function (data) {
-                    var mapDataArray = [];
-                    for (var prop in mapData) {
-                        mapDataArray.push(mapData[prop]);
-                    }
-
-                    if (data.nodes.length <= mapDataArray.length)
-                    {
-                        nx.each(data.nodes, function (node) {
-                            var index = data.nodes.indexOf(node);
-                            node.latitude = mapDataArray[index].latitude;
-                            node.longitude = mapDataArray[index].longitude;
+                    nx.each(data.nodes, function (node) {
+                        if(mapData[node.name] != null) {
+                            node.latitude = mapData[node.name].latitude;
+                            node.longitude = mapData[node.name].longitude;
+                        }
+                        else {
+                            node.latitude = 21.0;
+                            node.longitude = -157.0;
+                        }
                         });
-                    }
                     self.topo().data(data);
                     self.pathInfo().createPath().endpointSelector().setNodes(data.nodes);
                 });
